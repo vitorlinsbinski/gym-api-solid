@@ -1,0 +1,52 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String   @id @default(uuid())
+  name          String
+  email         String   @unique
+  password_hash String
+  created_at    DateTime @default(now())
+
+  checkIns CheckIn[]
+
+  @@map("users")
+}
+
+model CheckIn {
+  id           String    @id @default(uuid())
+  created_at   DateTime  @default(now())
+  validated_at DateTime?
+
+  user    User   @relation(fields: [user_id], references: [id])
+  user_id String
+  gym     Gym    @relation(fields: [gym_id], references: [id])
+  gym_id  String
+
+  @@map("check_ins")
+}
+
+model Gym {
+  id          String    @id @default(uuid())
+  title       String
+  description String?
+  phone       String?
+  latitude    Decimal
+  longitude   Decimal
+  checkIns    CheckIn[]
+
+  @@map("gyms")
+}
+
+// 1-1 => Um registro de uma tabela está relacionado a no máximo um registro em outra tabela, e vice-versa
+// 1-N => Uma informação armazenada em uma tabela pode estar relacionada com vários registros que estão armazenados em outras tabelas
+// N-N => Um registro de uma tabela pode estar relacionado com vários registros de outra tabela, e um registro da outra tabela pode estar relacionada com vários registros da tabela inicial
