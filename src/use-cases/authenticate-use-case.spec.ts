@@ -4,10 +4,13 @@ import { AuthenticateUseCase } from './authenticate-use-case';
 import { hash } from 'bcryptjs';
 import { InvalidCredentialsError } from './errors/invalid-credentials-error';
 
+let usersRepository: InMemoryUsersRepository;
+let sut: AuthenticateUseCase;
+
 describe('Authenticate Use Case', () => {
   it('should be able to authenticate', async () => {
-    const usersRepository = new InMemoryUsersRepository();
-    const sut = new AuthenticateUseCase(usersRepository); // System Under Test
+    usersRepository = new InMemoryUsersRepository();
+    sut = new AuthenticateUseCase(usersRepository); // System Under Test
 
     await usersRepository.create({
       name: 'John Doe',
