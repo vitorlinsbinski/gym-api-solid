@@ -11,15 +11,15 @@ Gympass style app.
 - [] Deve ser possível o usuário obter seu histórico de check-ins;
 - [] Deve ser possível o usuário buscar academias próximas;
 - [] Deve ser possível o usuário buscar academias pelo nome;
-- [] Deve ser possível o usuário realizar check-in em uma academia;
+- [x] Deve ser possível o usuário realizar check-in em uma academia;
 - [] Deve ser possível validar o check-in de um usuário;
 - [] Deve ser possível cadastrar uma academia
 
 ## Regras de negócio (RN): Caminhos que cada requisito pode tomar. São condições associadas aos requisitos funcionais
 
 - [x] O usuário não deve poder se cadastrar com um e-mail duplicado
-- [] O usuário não pode fazer dois check-ins no mesmo dia;
-- [] O usuário não pode fazer check-in se não estiver perto (100m) da academia;
+- [x] O usuário não pode fazer dois check-ins no mesmo dia;
+- [x] O usuário não pode fazer check-in se não estiver perto (100m) da academia;
 - [] O check-in só pode ser validado até 20 minutos após criado;
 - [] O check-in só pode ser validado por admnistradores;
 - [] A academia só pode ser cadastrada por admnistradores;
@@ -30,3 +30,5 @@ Gympass style app.
 - [x] Os dados da aplicação precisam estar persistidos em um banco PostgreSQL;
 - [] Todas listas de dados precisam estar páginadas com 20 itens por página;
 - [] O usuário deve ser identificado por um JWT (JSON Web Token);
+
+## TDD -> Test-driven Development
