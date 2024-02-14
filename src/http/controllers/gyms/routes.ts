@@ -1,5 +1,5 @@
 import { FastifyInstance } from 'fastify';
-import { verifyJWT } from '../../middlewares/verify-jwt';
+import { verifyJWT } from '@/http/middlewares/verify-jwt';
 import { search } from './search-controller';
 import { nearby } from './nearby-controller';
 import { create } from './create-controller';
