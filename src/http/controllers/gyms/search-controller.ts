@@ -10,9 +10,9 @@ export async function search(request: FastifyRequest, reply: FastifyReply) {
 
   const { q, page } = searchGymsQuerySchema.parse(request.query);
 
-  try {
-    const searchGymsUseCase = makeSearchGymsUseCase();
+  const searchGymsUseCase = makeSearchGymsUseCase();
 
+  try {
     const { gyms } = await searchGymsUseCase.execute({
       query: q,
       page,
