@@ -14,7 +14,7 @@ describe('Validate check-in (e2e)', () => {
   });
 
   it('should be able to validate a check-in', async () => {
-    const { token } = await createAndAuthenticateUser(app);
+    const { token } = await createAndAuthenticateUser(app, true);
 
     // Caso eu não tenha acesso à rota de criar a academia, eu posso fazer a inserção direto no banco de dados, mas é preferível evitar esse tipo de abordagem:
     const user = await prisma.user.findFirstOrThrow();
